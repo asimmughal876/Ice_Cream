@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<!--
+Template Name: Ice-Cream - ice-cream responsive Template
+Version: 1.0.0
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- Begin Head -->
+<!-- Mirrored from templatebundle.net/templates/icecream-parlour-html-template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Mar 2024 17:21:02 GMT -->
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta name="description" content="ice-cream" />
+	<meta name="keywords" content="candy, chocolate, food, icecream, pastry, restaurant, yogurt, portfolio, presentation, reservation">
+	<meta name="author" content="" />
+	<meta name="MobileOptimized" content="320">
+	<title>ICE CREAM</title>
+	<!-- start style-->
+	<link rel="stylesheet" type="text/css" href="~/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="~/css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="~/css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="~/css/custom_animation.css">
+	<link rel="stylesheet" type="text/css" href="~/css/flaticon.css">
+	<link rel="stylesheet" type="text/css" href="~/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="~/css/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="~/css/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="~/css/style.css">
+	<!-- favicon link-->
+	<link rel="icon" type="image/ico" href="~/images/favicon.html">
+	@RenderSection("styles", required: false)
+</head>
+<body>
+	<div class="loader_wrapper">
+		<div class="loader">
+			<img src="~/images/loader.gif" alt="icecream-parlour-loader">
+		</div>
+	</div>
+	<div class="ice_main_wrapper">
+		<div class="ice_banner_wrapper">
+			<img src="~/images/banner/banner_bg.jpg" alt="icecream-parlour-banner" class="img-responsive">
+			<div class="banner_content">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
+							<div class="header_wrapper">
+								<div class="ice_logo">
+									<a href="index.html"><img src="~/images/logo.png" alt="icecream-parlour-logo"></a>
+								</div>
+								<div class="ice_menu_wraper">
+									<a data-toggle="collapse" data-target="#menu" class="toggle"><span></span></a>
+									<div class="ice_menu collapse" id="menu">
+										<a data-toggle="collapse" data-target="#menu" class="toggle close"><span></span></a>
+										<ul>
+											<li>
+												<a asp-controller="Home" asp-action="Index">home</a>
+											</li>
+											<li><a asp-controller="Home" asp-action="about">about</a></li>
+											
+
+											<li>
+											
+											<a asp-controller="Home" asp-action="shop">shop</a>
+										
+											</li>
+											<li>
+												<a>pages</a>
+												<ul class="sub-menu">
+													<li>
+														<a asp-controller="Home" asp-action="faq">FAQS</a>
+													</li>
+													<li>
+														<a asp-controller="Home" asp-action="feedback">feedback</a>
+													</li>
+												</ul>
+											</li>
+											<li><a asp-controller="Home" asp-action="contact">contact</a></li>
+											@using System.Security.Claims;
+
+											@{
+												string userName = User.FindFirst(ClaimTypes.Name)?.Value;
+											}
+
+											@if (!string.IsNullOrEmpty(userName))
+											{
+												<li>
+													<a asp-controller="Home" asp-action="Index" class="text-dark">
+														@userName
+													</a>
+												</li>
+												<li>
+													<a asp-area="" asp-controller="Home" asp-action="Logout">Logout</a>
+												</li>
+											}
+											else
+											{
+												<li>
+													<a asp-area="" asp-controller="Home" asp-action="Register">SignUp</a>
+												</li>
+												<li>
+													<a asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+												</li>
+											}
+
+										</ul>
+									</div>
+									
+								</div>
+							</div>
+							<div class="slider_content">
+								<h1>All YOu Need Is Love & Ice Cream</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="overlay">
+				<div class="chery c1"><img src="~/images/banner/1.png" alt="icecream-parlour-banner"></div>
+				<div class="chery c2"><img src="~/images/banner/1.png" alt="icecream-parlour-banner"></div>
+				<div class="chery c3"><img src="~/images/banner/1.png" alt="icecream-parlour-banner"></div>
+				<div class="chery c4"><img src="~/images/banner/1.png" alt="icecream-parlour-banner"></div>
+				<div class="chery c5"><img src="~/images/banner/1.png" alt="icecream-parlour-banner"></div>
+				<div class="chery c6"><img src="~/images/banner/1.png" alt="icecream-parlour-banner"></div>
+				<div class="chery c7"><img src="~/images/banner/1.png" alt="icecream-parlour-banner"></div>
+				<div class="chery c8"><img src="~/images/banner/1.png" alt="icecream-parlour-banner"></div>
+			</div>
+		</div>
+							<div>
+								<main role="main" class="pb-3">
+										@RenderBody()
+								</main>
+							</div>
+
+		<div class="ice_footer_wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+						<div class="widget widget_info text-center">
+							<div class="ice_logo">
+								<a href="index.html"><img src="~/images/logo1.png" alt="icecream-parlour-footer-logo"></a>
+							</div>
+							<p>Savor the artisanal craftsmanship and rich flavors of our handmade ice creams, crafted with care to delight your senses with every scoop.</p>
+							<ul class="social_icon">
+								<li><a href="#"><i class="flaticon-facebook-letter-logo"></i></a></li>
+								<li><a href="#"><i class="flaticon-twitter-logo-silhouette"></i></a></li>
+								<li><a href="#"><i class="flaticon-linkedin-logo"></i></a></li>
+								<li><a href="#"><i class="flaticon-google-plus-logo"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+						<div class="widget widget_news">
+							<h2 class="ice_sub_heading widget-title">latest news</h2>
+							<ul>
+								<li>
+									<div class="news_img"><a href="#"><img src="~/images/footer/1.jpg" alt="icecream-parlour-footer-latest-post"></a></div>
+									<div class="news_detail"><a href="#">22 jul 2021</a> <p>Li nov lingua franca va simplic Europan. simplice Europan.</p></div>
+								</li>
+								<li>
+									<div class="news_img"><a href="#"><img src="~/images/footer/2.jpg" alt="icecream-parlour-footer-latest-post"></a></div>
+									<div class="news_detail"><a href="#">22 jul 2021</a> <p>Li nov lingua franca va simplic Europan. simplice Europan.</p></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+						<div class="widget widget_page">
+							<h2 class="ice_sub_heading widget-title">our pages</h2>
+							<ul>
+								<li><a href="cart.html"><i class="flaticon-check"></i>cart</a></li>
+								<li><a href="faq.html"><i class="flaticon-check"></i>FAQS</a></li>
+
+								<li><a href="shortcodes.html"><i class="flaticon-check"></i>Feedback</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+						<div class="widget widget_address">
+							<h2 class="ice_sub_heading widget-title">our contact</h2>
+							<ul>
+								<li>
+									<div class="address_icon"><i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i></div>
+									<div class="address_detail"><h3>Address</h3> <p>Rainbow Drive Youngstown</p></div>
+								</li>
+								<li>
+									<div class="address_icon"><i class="flaticon-call-answer"></i></div>
+									<div class="address_detail"><h3>Contact Numbers</h3> <p>1800 450 1245</p></div>
+								</li>
+								<li>
+									<div class="address_icon"><i class="fa fa-clock-o"></i></div>
+									<div class="address_detail"><h3>Office Timings</h3> <p>Mon - Fri 9.00am : 6.00pm</p></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="overlay">
+				<img src="~/images/footer/ice.png" alt="icecream-parlour-footer-overlay">
+			</div>
+		</div>
+		<div class="ice_copyright_wrapper text-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<div class="copyright">
+							<p class="white">Copyrights &copy; 2021, All Rights Reserved by <a href="index.html">ICE CREAM</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="goto_wrapper"><img src="~/images/loader.gif" alt="icecream-parlour-sroll-go-to-up"></div>
+	<!-- site jquery start -->
+	<script type="text/javascript" src="~/js/jquery.js"></script>
+	<script type="text/javascript" src="~/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="~/js/theia-sticky-sidebar.js"></script>
+	<script type="text/javascript" src="~/js/wow.js"></script>
+	<script type="text/javascript" src="~/js/okzoom.min.js"></script>
+	<script type="text/javascript" src="~/js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" src="~/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="~/js/custom.js"></script>
+	<!-- site jquery end -->
+	@RenderSection("scripts", required: false)
+
+</body>
+
+<!-- Mirrored from templatebundle.net/templates/icecream-parlour-html-template/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Mar 2024 17:21:29 GMT -->
+</html> 

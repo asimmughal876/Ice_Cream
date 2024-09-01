@@ -1,0 +1,120 @@
+﻿@model Epro.Models.Cart
+@{
+	var total = 0;
+}
+<style>
+	input::placeholder
+	{
+		color:white;
+	}
+</style>
+
+<div class="ice_main_section1">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="woocommerce">
+						<table class="table table-bordered shop_table cart">
+							<thead>
+								<tr>
+									<th class="product-wrap">Product</th>
+									<th class="product-price">Price</th>
+									<th class="product-quantity">Quantity</th>
+								    <th class="product-quantity">Remove Item</th>
+								    <th class="product-quantity">Add Item</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								      @foreach (Cart item in ViewBag.mycart){
+            var q = item.Price * item.Quantity;
+								<tr class="cart_item">
+									<td class="product-wrap">
+
+										<div class="product-detail">
+											<h4 class="product-name"><a>@item.RecipeName</a></h4>
+										</div>
+									</td>
+									<td class="product-price">
+										<div>
+											<span class="mobile-show">Price: </span>
+											<span class="amount">
+												<span class="amount">@item.Price</span>
+											</span>
+										</div>
+									</td>
+									<td class="product-quantity">
+										<div class="quantity buttons_added">
+											<div class="quantity">
+											@item.Quantity
+											</div>
+										</div>
+									</td>
+									<td class="product-quantity">
+										<div class="quantity buttons_added">
+											<div>
+													<a asp-action="minus" style="font-size:30px; text-align:center !important;" asp-route-id="@item.RecipeId"
+												    title="Remove this item">-</a>
+
+													@{
+														total = q;
+													}
+											</div>
+
+									</td>
+									<td class="product-quantity">
+										<div class="quantity buttons_added">
+											<div>
+												<a style="font-size:30px; text-align:center !important;" asp-action="AddToCart" asp-route-id="@item.RecipeId">+</a>
+
+														@{
+															total = q;
+														}
+											</div>
+											</div>
+									</td>
+								</tr>
+									
+
+								
+								}
+								
+							</tbody>
+						</table>
+
+						<div class="cart-collaterals">
+							<div class="row" style="display:flex;">
+								<div class="col col-lg-6 col-lg-offset-6 col-md-4" style="margin:auto;">
+									<div class="cart_totals" style="">
+										<h2>Cart Totals</h2>
+										<table>
+											<tbody>
+												<tr class="order-total">
+													<th>Total</th>
+												<td><strong><span class="amount">@total</span></strong> </td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="wc-proceed-to-checkout">
+											<form>
+											<input type="email"  title="Please enter a 16-digit credit card number" required placeholder="Email" style="border:0px; border-radius:10px; margin-bottom:15px; padding:8px; width:100%; background-color:rgba(254, 72, 72, 0.8); color:white;">
+
+											<input type="number"  title="Please enter a 16-digit credit card number" required placeholder="Contact Number" style="border:0px; border-radius:10px; margin-bottom:15px; padding:8px; width:100%; background-color:rgba(254, 72, 72, 0.8); color:white;">
+
+
+											<input type="text" title="Please enter a 16-digit credit card number" required placeholder="Address" style="border:0px; border-radius:10px; margin-bottom:15px; padding:8px; width:100%; background-color:rgba(254, 72, 72, 0.8); color:white;">
+
+											<input type="text" pattern="[0-9]{16}" title="Please enter a 16-digit credit card number" required placeholder="Credit Card Number" style="border:0px; border-radius:10px; margin-bottom:15px; padding:8px; width:100%; background-color:rgba(254, 72, 72, 0.8); color:white;">
+										<button asp-action="checkout" class="checkout-button ice_btn alt wc-forward" style="margin:auto; display:flex; text-align:center !important;">Proceed to Checkout</button>
+										</form>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+		</div>
+	</div>
+</div>
+	
+</div>

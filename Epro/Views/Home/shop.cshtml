@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Epro.Models.Recipe>
+
+
+<div class="ice_main_section1">
+    <div class="container">
+                <div class="row">
+                    <div class="ice_special shop_wrapper">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                                <div class="special_section text-center wow slideup">
+                                    <div class="special_img">
+                                        <img src="~/@item.RecipeImage" width="400" height="420" />
+                                    </div>
+                                    <h2 class="ice_sub_heading"><a href="shop_single.html"><i class="flaticon-check"></i> @item.RecipeName</a></h2>
+                                    <p>
+                                INGREDIENTS: <span id="ingredientDots_@item.RecipeId" style="display: none;">@item.RecipeIngredients</span>
+                                <button class="checkout-button ice_btn alt wc-forward" id="ingredientBtn_@item.RecipeId" onclick="toggleIngredients('@item.RecipeId')">Read more</button>
+                                    </p>
+                                    <div class="wishlist_wrapper">
+                                        <span>PRICE: @item.RecipePrice pkr</span>
+                                    </div>
+                            <a class="ice_btn" asp-action="AddToCart" asp-route-id="@item.RecipeId">Add To Cart</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+       
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        function toggleIngredients(recipeId) {
+            var dots = document.getElementById("ingredientDots_" + recipeId);
+            var btnText = document.getElementById("ingredientBtn_" + recipeId);
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read less";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read more";
+            }
+        }
+    </script>
+}

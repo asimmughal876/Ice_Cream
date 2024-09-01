@@ -1,0 +1,44 @@
+﻿@model Epro.Models.Recipe;
+@{
+    Layout = "_LayoutAdmin";
+}
+<div class="main_content_iner ">
+    <div class="container-fluid p-0 sm_padding_15px">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="white_card card_height_100 mb_30">
+                    <div class="white_card_header">
+                        <div class="box_header m-0">
+                            <div class="main-title">
+                                <h3 class="m-0">Recipe Form</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="white_card_body">
+                        <form method="post" enctype="multipart/form-data">
+                            @Html.AntiForgeryToken()
+                            <div class="mb-3">
+                                <input type="text" required class="form-control" asp-for="RecipeName" placeholder="Enter Recipe Name" >
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" required class="form-control" asp-for="RecipeIngredients" placeholder="Enter Recipe Ingredients" >
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="file" required name="file" class="form-control">
+                                <p class="text-danger fw-bold">@TempData["img"]</p>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="number" required class="form-control" asp-for="RecipePrice" placeholder="Enter Recipe Price" >
+                            </div>
+                            <button type="submit" class="btn btn-primary d-flex m-auto">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

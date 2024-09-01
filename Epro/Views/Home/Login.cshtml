@@ -1,0 +1,71 @@
+﻿@model Epro.Models.UserRecord
+<div class="ice_main_section1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="contact_wrapper wow slideleft">
+                    <h1 class="ice_heading text-center">LOGIN</h1>
+                    <div class="contact_form">
+                        <div class="row">
+                            <form method="post">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <p>
+                                        <input type="email" asp-for="UserEmail" class="require" />
+                                        <label asp-for="UserEmail"></label>
+                                        <span asp-validation-for="UserEmail" class="text-danger"></span>
+                                    </p>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <p>
+                                        <input type="password" asp-for="UserPassword" type="password" class="require" />
+                                        <label>Password</label>
+                                        <span asp-validation-for="UserPassword" class="text-danger"></span>
+                                    </p>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                    <button type="submit" class="ice_btn submitForm">SUBMIT</button>
+                                </div>
+                                <div class="response text-center text-capitalize"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="contact_detail text-center wow slideright">
+                    <h1 class="ice_heading_white text-center">information</h1>
+                    <ul>
+                        <li>
+                            <div class="contact_section">
+                                <i class="flaticon-facebook-placeholder-for-locate-places-on-maps white"></i>
+                                <p class="white">44 Shirley Ave.  West Chicago, IL 60185</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact_section">
+                                <i class="flaticon-call-answer white"></i>
+                                <p class="white">+6236598963, +6236598965</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact_section">
+                                <i class="flaticon-mail-black-envelope-symbol white"></i>
+                                <p class="white">Help@yourmail.com, Mail.mail@mail.com</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@{
+    string loginMsg = TempData["loginMsg"] as string;
+
+}
+@if (!string.IsNullOrEmpty(loginMsg))
+{
+    <script>
+        alert("@loginMsg");
+    </script>
+}

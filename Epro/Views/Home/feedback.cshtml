@@ -1,0 +1,71 @@
+﻿@model Epro.Models.Feedback
+<div class="ice_main_section1">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+				<div class="contact_wrapper wow slideleft">
+					<h1 class="ice_heading text-center">Drop Your Feedback!</h1>
+					<div class="contact_form">
+						<div class="row">
+							<form method="post">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<p>
+										<input asp-for="FUserName" type="text" class="require" required>
+										<label>name<span class="required" title="required">*</span></label>
+									</p>
+								</div>
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<p>
+										<textarea asp-for="FMessage" required></textarea>
+										<label>message</label>
+									</p>
+								</div>
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+									<button type="submit" class="ice_btn submitForm">SUBMIT</button>
+								</div>
+								<div class="response text-center text-capitalize"></div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+				<div class="contact_detail text-center wow slideright">
+					<h1 class="ice_heading_white text-center">information</h1>
+					<ul>
+						<li>
+							<div class="contact_section">
+								<i class="flaticon-facebook-placeholder-for-locate-places-on-maps white"></i>
+								<p class="white">44 Shirley Ave.  West Chicago, IL 60185</p>
+							</div>
+						</li>
+						<li>
+							<div class="contact_section">
+								<i class="flaticon-call-answer	 white"></i>
+								<p class="white">+6236598963, +6236598965</p>
+							</div>
+						</li>
+						<li>
+							<div class="contact_section">
+								<i class="flaticon-mail-black-envelope-symbol white"></i>
+								<p class="white">Help@yourmail.com, Mail.mail@mail.com</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@{
+	string feedback = TempData["feed"] as string;
+
+}
+@if (!string.IsNullOrEmpty(feedback))
+{
+	<script>
+		alert("@feedback");
+	</script>
+}
+

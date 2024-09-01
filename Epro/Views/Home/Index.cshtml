@@ -1,0 +1,324 @@
+﻿@model Epro.Models.indexmodel
+@{
+	string RegMessage = TempData["loginMsg"] as string;
+}
+@{
+	string Recipe_send = TempData["Recipe_send"] as string;
+	string cart = TempData["cart"] as string;
+}
+
+
+@if (!string.IsNullOrEmpty(RegMessage))
+{
+	<script>
+		alert("@RegMessage");
+	</script>
+}
+
+@if (!string.IsNullOrEmpty(cart))
+{
+	<script>
+		alert("@cart");
+	</script>
+}
+
+@if (!string.IsNullOrEmpty(Recipe_send))
+{
+	<script>
+		alert("@Recipe_send");
+	</script>
+}
+
+<div class="ice_main_section1">
+	<div class="container">
+		<div class="row">
+			<div class="ice_about_wrapper">
+				<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+					<div class="ice_about_Section wow slideleft">
+						<h1 class="ice_heading">Something About Ice Cream</h1>
+						<p>Indulging in ice cream is like a delightful journey through a frosty wonderland. With each scoop, creamy goodness tantalizes the taste buds, sending shivers of pleasure down your spine. Whether it's the classic vanilla bean or an exotic mango sorbet, there's a flavor for every craving. Topped with a swirl of whipped cream or a sprinkle of nuts, it becomes 
+							a masterpiece of sweetness. Sharing a cone with loved ones under the sun or savoring a bowl alone, ice cream creates moments of pure bliss.</p>
+						<ul>
+							<li>
+								<div class="pull-left">
+									<i class="flaticon-ice-cream-1"></i>
+								</div>
+								<div class="pull-left">
+									<p><i>Fresh Ice Cream</i></p>
+								</div>
+							</li>
+							<li>
+								<div class="pull-left">
+									<i class="flaticon-ice-cream-1"></i>
+								</div>
+								<div class="pull-left">
+									<p><i>Bacon ice cream</i></p>
+								</div>
+							</li>
+							<li>
+								<div class="pull-left">
+									<i class="flaticon-ice-cream-1"></i>
+								</div>
+								<div class="pull-left">
+									<p><i>Brown bread ice cream</i></p>
+								</div>
+							</li>
+							<li>
+								<div class="pull-left">
+									<i class="flaticon-ice-cream-1"></i>
+								</div>
+								<div class="pull-left">
+									<p><i>Cherry Ice Cream</i></p>
+								</div>
+							</li>
+							<li>
+								<div class="pull-left">
+									<i class="flaticon-ice-cream-1"></i>
+								</div>
+								<div class="pull-left">
+									<p><i>Chocolate Ice Cream</i></p>
+								</div>
+							</li>
+							<li>
+								<div class="pull-left">
+									<i class="flaticon-ice-cream-1"></i>
+								</div>
+								<div class="pull-left">
+									<p><i>Coffee Ice Cream</i></p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="overlap_img">
+					<img src="images/about/about.png" alt="icecream-parlour-about">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="ice_main_section2 ice_special_wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg- col-md-6 col-sm-12 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-0 col-sx-offset-0">
+				<div class="heading_wrapper text-center wow slidedown">
+					<h1 class="ice_heading_white">Top 3 Famous Recipe<span style="font-size:small;"> (for registered users only)</span> </h1>
+					<p class="white">Explore the culinary world's treasures with these top three famous recipes that have captured hearts and palates worldwide.</p>
+				</div>
+			</div>
+			@if (User.Identity.IsAuthenticated)
+			{
+				<div class="ice_special">
+					@foreach (var recipe in Model.Recipe)
+					{
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							<div class="special_section text-center wow slideright">
+						<div class="special_img">
+							<img src="~/@recipe.RecipeImage" alt="icecream-parlour-special" class="img-responsive">
+						</div>
+						<h2 class="ice_sub_heading"><a><i class="flaticon-check"></i> 
+							@recipe.RecipeName</a></h2>
+						<p>@recipe.RecipeIngredients</p>
+						<div class="wishlist_wrapper">
+							<span class="text-center">@recipe.RecipePrice pkr</span>
+						</div>
+					</div>
+				</div>
+				}
+			</div>
+			}
+		</div>
+	</div>
+</div>
+<div class="ice_main_section2">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg- col-md-6 col-sm-12 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-0 col-sx-offset-0">
+				<div class="heading_wrapper text-center wow slidedown">
+					<h1 class="ice_heading">our services</h1>
+					<p>Discover a spectrum of tailored solutions designed to cater to your every need through our comprehensive range of services.</p>
+				</div>
+			</div>
+			<div class="service_wrapper">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="service_section text-center wow zoomIn" style="background-image: url('images/service/1.png');">
+						<span class="flaticon-ice-cream"></span>
+						<h2 class="ice_sub_heading"><a href="#" class="white">Ice Cream Parlour</a></h2>
+						<p class="white">Scooping happiness one cone at a time at our Ice Cream Parlour.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="service_section text-center wow zoomIn" data-wow-delay="0.2s" style="background-image: url('images/service/2.png');">
+						<span class="flaticon-restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle"></span>
+						<h2 class="ice_sub_heading"><a href="#" class="white">restaurant</a></h2>
+						<p class="white">Savor the essence of culinary excellence at our esteemed restaurant.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="service_section text-center wow zoomIn" data-wow-delay="0.4s" style="background-image: url('images/service/3.png');">
+						<span class="flaticon-wine-glasses"></span>
+						<h2 class="ice_sub_heading"><a href="#" class="white">Bar Club Hall</a></h2>
+						<p class="white">Experience the epitome of nightlife sophistication at our Bar Club Hall.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="service_section text-center wow zoomIn" data-wow-delay="0.6s" style="background-image: url('images/service/4.png');">
+						<span class="flaticon-stair-of-a-swimming-pool"></span>
+						<h2 class="ice_sub_heading"><a href="#" class="white">Ice Cream Parlour</a></h2>
+						<p class="white">Scooping happiness one cone at a time at our Ice Cream Parlour.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="ice_main_section2 ice_team_wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg- col-md-6 col-sm-12 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-0 col-sx-offset-0">
+				<div class="heading_wrapper text-center wow slidedown">
+					<h1 class="ice_heading_white">Recipe Winners</h1>
+					<p class="white">Send us Your Recipe if your Recipe get selected you will recieve a prize money</p>
+				</div>
+			</div>
+
+			<div class="team_wrapper">
+				@foreach (var item in Model.UserRecipe)
+				{
+				<div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
+					<div class="team_section text-center wow zoomIn">
+						
+					
+							<h2 class="ice_sub_heading white"><a>User Name: @item.UserRecipeUserName</a></h2>
+							<p class="white"><span style="font-size:20px;"><b>Recipe Name:</b></span> @item.UserRecipeName</p>
+							<p class="white"><span style="font-size:20px;"><b>Recipe:</b></span> @item.UserRecipeIngredients</p>
+						<ul class="social_icon">
+								<li><p class="white"><span style="font-size:20px;"><b>Recipe Prize:</b></span> @item.UserRecipePrize pkr</p></li>
+						</ul>
+						
+					
+				</div>
+
+			</div>
+			}
+		</div>
+		
+	</div>
+		<a asp-action="User_Recipe" class="checkout-button ice_btn alt wc-forward" style="margin:auto; display:flex; width:30%;">Send Us Your Recipe</a>
+
+	</div>	<div class="overlay">
+		<div class="left_img"><img src="images/team/1.png" alt="icecream-parlour-team-overlay"></div>
+		<div class="right_img"><img src="images/team/2.png" alt="icecream-parlour-team-overlay"></div>
+	</div>
+</div>
+
+<div class="ice_main_section1">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg- col-md-6 col-sm-12 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-0 col-sx-offset-0">
+				<div class="heading_wrapper text-center wow slidedown">
+					<h1 class="ice_heading">Handmade Ice Creams</h1>
+					<p>Savor the artisanal craftsmanship and rich flavors of our handmade ice creams, crafted with care to delight your senses with every scoop.</p>
+				</div>
+			</div>
+			<div class="ice_cream_wrapper">
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+					<div class="handmade_section wow slideleft">
+						<h2 class="ice_sub_heading">Handmade Cones</h2>
+						<ul>
+							<li>
+								<div class="product_detail">
+									<a href="shop_single.html" class="pull-left ice_sub_heading">Vannila Scotch</a>
+									<span class="pull-right ice_sub_heading">6.5$</span>
+								</div>
+								<p>Create indulgent Vanilla Scotch handmade cones by infusing classic vanilla with rich caramel undertones for a tantalizing treat.</p>
+							</li>
+							<li>
+								<div class="product_detail">
+									<a href="shop_single.html" class="pull-left ice_sub_heading">Strawberry Gems</a>
+									<span class="pull-right ice_sub_heading">7.5$</span>
+								</div>
+								<p>Savor the sweet allure of summer with our Strawberry Gems handmade cone recipe, bursting with vibrant strawberry flavor.</p>
+							</li>
+							<li>
+								<div class="product_detail">
+									<a href="shop_single.html" class="pull-left ice_sub_heading">Butter Scotch</a>
+									<span class="pull-right ice_sub_heading">9.5$</span>
+								</div>
+								<p>Whip up a batch of our irresistible homemade butterscotch cones for a delectable twist on a classic treat.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="handmade_img wow slideright">
+					<img src="images/handmade/1.png" alt="icecream-parlour-handmade1">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ice_video_wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2 col-sm-12 col-xs-12 col-sm-offset-0 col-sx-offset-0">
+				<div class="video_detail text-center">
+					<a href="https://youtu.be/mQU_LMrf0Os?si=ty3OpjYpGcTcUWpp" class="video"><i class="flaticon-play-button"></i></a>
+					<h1 class="ice_heading_white">How We Make Best Ice Cream</h1>
+					<p class="white">Savor the artisanal craftsmanship and rich flavors of our handmade ice creams, crafted with care to delight your senses with every scoop.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ice_main_section2">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg- col-md-6 col-sm-12 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-0 col-sx-offset-0">
+				<div class="heading_wrapper text-center wow slidedown">
+					<h1 class="ice_heading">Free Recipies</h1>
+					<p>Unlock a treasure trove of culinary delights with our collection of free recipes, crafted to inspire and delight your taste buds without costing a penny.</p>
+				</div>
+			</div>
+			@foreach (var recipe in Model.Recipe)
+			{
+			<div class="blog_wrapper">
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<div class="blog_Section wow slideup">
+						<div class="blog_img ice_hover">
+								<img src="~/@recipe.RecipeImage" alt="icecream-parlour-special" class="img-responsive">
+							<div class="overlay">
+								<a href="blog_single.html"><i class="fa fa-link"></i></a>
+							</div>
+						</div>
+						<div class="blog_detail">
+								<h2 class="ice_sub_heading"><a href="blog_single.html">@recipe.RecipeName </a></h2>
+							<ul>
+								<li><span>by</span><a href="#" class="link">admin</a></li>
+							</ul>
+								<p>@recipe.RecipeIngredients</p>
+							<ul class="share_wrapper">
+								<li><a href="#"><i class="flaticon-favorite-heart-button"></i>360</a></li>
+								<li><a href="#"><i class="flaticon-comment-black-oval-bubble-shape"></i>26</a></li>
+								<li class="share">
+									<a href="#"><i class="flaticon-share"></i>share</a>
+									<ul class="social_icon">
+										<li><a href="#"><i class="flaticon-facebook-letter-logo"></i></a></li>
+										<li><a href="#"><i class="flaticon-twitter-logo-silhouette"></i></a></li>
+										<li><a href="#"><i class="flaticon-linkedin-logo"></i></a></li>
+										<li><a href="#"><i class="flaticon-google-plus-logo"></i></a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						</div>
+				</div>
+			</div>
+			}
+		</div>
+	</div>
+</div>
+

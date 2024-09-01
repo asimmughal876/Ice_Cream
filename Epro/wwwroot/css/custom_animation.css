@@ -1,0 +1,103 @@
+@keyframes floating {
+    from {
+        -webkit-transform: rotate(0deg) translate(-10px) rotate(0deg);
+        -moz-transform: rotate(0deg) translate(-10px) rotate(0deg);
+        -ms-transform: rotate(0deg) translate(-10px) rotate(0deg);
+        -o-transform: rotate(0deg) translate(-10px) rotate(0deg);
+        transform: rotate(0deg) translate(-10px) rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+        -moz-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+        -ms-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+        -o-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+        transform: rotate(360deg) translate(-10px) rotate(-360deg)
+    }
+}
+
+@-webkit-keyframes floating {
+    from {
+        -webkit-transform: rotate(0deg) translate(-10px) rotate(0deg);
+        -moz-transform: rotate(0deg) translate(-10px) rotate(0deg);
+        -ms-transform: rotate(0deg) translate(-10px) rotate(0deg);
+        -o-transform: rotate(0deg) translate(-10px) rotate(0deg);
+        transform: rotate(0deg) translate(-10px) rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+        -moz-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+        -ms-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+        -o-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+        transform: rotate(360deg) translate(-10px) rotate(-360deg)
+    }
+}
+@keyframes img_zoom {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.5);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+.slideleft {
+  animation: slideleft 0.8s;
+}
+@keyframes slideleft {
+  from {
+    transform: translateX(-30px);
+    opacity:0;
+  }
+
+  to {
+    transform: translateX(0px);
+	opacity:1;
+  }
+}
+
+.slideright {
+  animation: slideright 0.8s;
+}
+@keyframes slideright {
+  from {
+    transform: translateX(30px);
+    opacity:0;
+  }
+
+  to {
+    transform: translateX(0px);
+	opacity:1;
+  }
+}
+
+.slidedown {
+  animation: slidedown 0.8s;
+}
+@keyframes slidedown {
+  from {
+    transform: translateY(-30px);
+    opacity:0;
+  }
+
+  to {
+    transform: translateY(0px);
+	opacity:1;
+  }
+}
+
+.slideup {
+  animation: slideup 0.8s;
+}
+@keyframes slideup {
+  from {
+    transform: translateY(30px);
+    opacity:0;
+  }
+
+  to {
+    transform: translateY(0px);
+	opacity:1;
+  }
+}
